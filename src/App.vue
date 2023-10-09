@@ -1,17 +1,19 @@
+
+
+
+
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app">
+    <input v-model="city" placeholder="Şehir adını girin" />
+    <BButton @click="getWeather" variant="primary">Sorgula</BButton>
+    <WeatherComponent v-if="weatherData" :data="weatherData" />
+  </div>
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+
+<script>
+
 </script>
 
 <style>
