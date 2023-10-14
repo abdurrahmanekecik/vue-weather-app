@@ -30,9 +30,14 @@ export default {
       event.preventDefault();
 
       try {
-        console.log(process.env.VUE_APP_API_KEY);
-        const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?zip=${this.city},US&appid={${process.env.VUE_APP_API_KEY}}&units=imperial`)
+        const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${this.city},TR&appid=${process.env.VUE_APP_API_KEY}`, {
+          headers: {
+            'Content-Type': 'application/json',
+          }
+        });
+        console.log(response.data);
         this.weatherData = response.data;
+
       } catch (error) {
         console.error("Hava durumu bilgisi alınırken bir hata oluştu:", error);
       }
